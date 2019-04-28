@@ -3,22 +3,17 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        bat 'mvn clean'
+        sh '/home/ranjeet/Downloads/apache-maven-3.6.1/bin/mvn clean'
       }
     }
     stage('Test') {
       steps {
-        bat 'mvn test'
+        sh '/home/ranjeet/Downloads/apache-maven-3.6.1/bin/mvn test'
       }
     }
     stage('Deploy') {
       steps {
-        bat 'mvn package'
-      }
-    }
-    stage('report') {
-      steps {
-        cucumber fileIncludePattern: '**/*.json', sortingMethod: 'ALPHABETICAL'
+        sh '/home/ranjeet/Downloads/apache-maven-3.6.1/bin/mvn package'
       }
     }
   }
